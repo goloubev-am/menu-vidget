@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widget Service - Recommendation Widget</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .status {
+            background: #10b981;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 20px 0;
+        }
+        
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        .endpoint {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        
+        .endpoint code {
+            color: #3B82F6;
+            font-weight: bold;
+        }
+        
+        button {
+            background: #3B82F6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        button:hover {
+            background: #2563eb;
+        }
+        
+        .demo-products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .demo-product {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .demo-product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .demo-product img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Recommendation Widget Service</h1>
+        <p>Виджет рекомендаций для вашего сайта на основе поведения пользователей</p>
+        
+        <div class="status">
+            ✅ Сервис работает
+        </div>
+        
+        <h2>🚀 Быстрый старт</h2>
+        <p>Добавьте этот код на ваш сайт:</p>
+        <div class="code-block">
+            <code>
+&lt;!-- Добавить перед закрывающим тегом body --&gt;<br>
+&lt;script&gt;<br>
+&nbsp;&nbsp;window.widgetConfig = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;apiUrl: 'https://menu-vidget.vercel.app',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;siteDomain: window.location.hostname,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;themeColor: '#3B82F6',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;title: '🎁 Рекомендуем для вас',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;position: 'bottom-right'<br>
+&nbsp;&nbsp;};<br>
+&lt;/script&gt;<br>
+&lt;script src="https://menu-vidget.vercel.app/widget.js" defer&gt;&lt;/script&gt;
+            </code>
+        </div>
+        
+        <h2>📡 API Endpoints</h2>
+        <div class="endpoint">
+            <code>POST /api/identify</code> - Идентификация пользователя
+        </div>
+        <div class="endpoint">
+            <code>POST /api/track</code> - Трекинг событий
+        </div>
+        <div class="endpoint">
+            <code>GET /api/recommendations/:clientId</code> - Получение рекомендаций
+        </div>
+        
+        <h2>🎨 Демо</h2>
+        <p>Нажмите на товары, чтобы протестировать трекинг:</p>
+        
+        <div class="demo-products">
+            <div class="demo-product" data-widget-product="1" data-widget-category="pizza">
+                <img src="https://via.placeholder.com/200x150?text=Pizza" alt="Пицца">
+                <h3>Маргарита</h3>
+                <p>450 ₽</p>
+            </div>
+            <div class="demo-product" data-widget-product="2" data-widget-category="pizza">
+                <img src="https://via.placeholder.com/200x150?text=Pepperoni" alt="Пепперони">
+                <h3>Пепперони</h3>
+                <p>550 ₽</p>
+            </div>
+            <div class="demo-product" data-widget-product="3" data-widget-category="pasta">
+                <img src="https://via.placeholder.com/200x150
