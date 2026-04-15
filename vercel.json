@@ -1,22 +1,63 @@
 {
   "version": 2,
-  "functions": {
-    "api/*.js": {
-      "runtime": "nodejs18.x"
+  "builds": [
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "public/**",
+      "use": "@vercel/static"
     }
-  },
+  ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
+      "src": "/api/hello",
+      "dest": "/api/hello.js"
+    },
+    {
+      "src": "/api/identify",
+      "dest": "/api/identify.js"
+    },
+    {
+      "src": "/api/track",
+      "dest": "/api/track.js"
+    },
+    {
+      "src": "/api/recommendations/([^/]+)",
+      "dest": "/api/recommendations/[clientId].js"
+    },
+    {
+      "src": "/api/admin/sites",
+      "dest": "/api/admin/sites.js"
+    },
+    {
+      "src": "/api/admin/stats",
+      "dest": "/api/admin/stats.js"
+    },
+    {
+      "src": "/api/admin/sites/([^/]+)/products",
+      "dest": "/api/admin/[siteId]/products.js"
+    },
+    {
+      "src": "/api/admin/sites/([^/]+)/rules",
+      "dest": "/api/admin/[siteId]/rules.js"
     },
     {
       "src": "/widget.js",
       "dest": "/public/widget.js"
     },
     {
+      "src": "/widget.css",
+      "dest": "/public/widget.css"
+    },
+    {
       "src": "/admin",
       "dest": "/public/admin.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/public/$1"
     }
   ]
 }
