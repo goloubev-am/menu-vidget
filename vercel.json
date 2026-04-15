@@ -2,88 +2,21 @@
   "version": 2,
   "functions": {
     "api/*.js": {
-      "runtime": "nodejs18.x",
-      "maxDuration": 10
-    },
-    "api/**/*.js": {
-      "runtime": "nodejs18.x",
-      "maxDuration": 10
+      "runtime": "nodejs18.x"
     }
   },
   "routes": [
     {
-      "src": "/api/hello",
-      "dest": "/api/hello.js"
-    },
-    {
-      "src": "/api/identify",
-      "dest": "/api/identify.js",
-      "methods": ["GET", "POST", "OPTIONS"]
-    },
-    {
-      "src": "/api/track",
-      "dest": "/api/track.js",
-      "methods": ["POST", "OPTIONS"]
-    },
-    {
-      "src": "/api/recommendations/([^/]+)",
-      "dest": "/api/recommendations/[clientId].js",
-      "methods": ["GET", "OPTIONS"]
-    },
-    {
-      "src": "/api/admin/sites",
-      "dest": "/api/admin/sites.js",
-      "methods": ["GET", "POST", "OPTIONS"]
-    },
-    {
-      "src": "/api/admin/sites/([^/]+)/products",
-      "dest": "/api/admin/[siteId]/products.js",
-      "methods": ["GET", "POST", "OPTIONS"]
-    },
-    {
-      "src": "/api/admin/sites/([^/]+)/rules",
-      "dest": "/api/admin/[siteId]/rules.js",
-      "methods": ["GET", "POST", "OPTIONS"]
-    },
-    {
-      "src": "/api/admin/stats",
-      "dest": "/api/admin/stats.js",
-      "methods": ["GET", "OPTIONS"]
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
     },
     {
       "src": "/widget.js",
       "dest": "/public/widget.js"
     },
     {
-      "src": "/widget.css",
-      "dest": "/public/widget.css"
-    },
-    {
       "src": "/admin",
       "dest": "/public/admin.html"
-    },
-    {
-      "src": "/",
-      "dest": "/public/index.html"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/api/(.*)",
-      "headers": [
-        { "key": "Access-Control-Allow-Credentials", "value": "true" },
-        { "key": "Access-Control-Allow-Origin", "value": "*" },
-        { "key": "Access-Control-Allow-Methods", "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
-        { "key": "Access-Control-Allow-Headers", "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, X-API-Key, X-Admin-Key, X-Site-Domain" },
-        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }
-      ]
-    },
-    {
-      "source": "/widget.js",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=3600" },
-        { "key": "Content-Type", "value": "application/javascript" }
-      ]
     }
   ]
 }
