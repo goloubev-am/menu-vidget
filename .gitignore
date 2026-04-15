@@ -137,3 +137,15 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+# Vercel deployment
+.vercel
+.vercel_cache
+.vercel_build_cache
+
+# Widget build artifacts (если появятся)
+*.widget.cache
+public/widget.min.js
+
+# Local development overrides
+*.local
+config.local.js
