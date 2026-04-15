@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Widget Service</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .card {
+            background: white;
+            color: #333;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1 { color: #667eea; }
+        .status { color: green; font-weight: bold; }
+        code {
+            background: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #d63384;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>🎯 Recommendation Widget Service</h1>
+        <p class="status">✅ Сервис работает!</p>
+        
+        <h2>Доступные endpoints:</h2>
+        <ul>
+            <li><code>POST /api/identify</code> - Идентификация пользователя</li>
+            <li><code>POST /api/track</code> - Трекинг событий</li>
+            <li><code>GET /api/recommendations/:clientId</code> - Получение рекомендаций</li>
+            <li><code>GET /api/admin/sites</code> - Управление сайтами</li>
+            <li><code>GET /admin</code> - Админ-панель</li>
+        </ul>
+        
+        <h2>Установка виджета:</h2>
+        <pre><code>&lt;script&gt;
+  window.widgetConfig = {
+    apiUrl: 'https://' + window.location.host,
+    siteDomain: window.location.hostname,
+    themeColor: '#3B82F6',
+    title: '🎁 Рекомендуем для вас'
+  };
+&lt;/script&gt;
+&lt;script src="https://' + window.location.host + '/widget.js" defer&gt;&lt;/script&gt;</code></pre>
+        
+        <p>🎉 Ваш сервис успешно развернут!</p>
+    </div>
+</body>
+</html>
