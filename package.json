@@ -3,13 +3,10 @@
   "version": "1.0.0",
   "description": "Recommendation widget service",
   "scripts": {
-    "dev": "vercel dev"
+    "build": "echo 'Build complete'"
   },
   "dependencies": {
     "uuid": "^9.0.1",
     "cookie": "^0.5.0"
-  },
-  "devDependencies": {
-    "vercel": "^32.5.0"
   }
 }
